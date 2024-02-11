@@ -17,7 +17,6 @@ const xLoginCheck = async (user) => {
             error.status = 404;
             throw error;
         }
-        console.log(parseInt(reqUser.plan));
 
         // Package Time Creation
         let expiredIn;
