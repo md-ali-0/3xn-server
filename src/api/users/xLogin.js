@@ -2,6 +2,7 @@ import xLoginCheck from "../../lib/user/xLoginCheck.js";
 
 const xLogin = async(req, res)=>{
     const user = req.body;
+    
     try {
         const result = await xLoginCheck(user)
         res.send(result)
