@@ -6,6 +6,7 @@ const addUser = async(user)=>{
         const cursor = await NewUser.save()
         return cursor
     } catch(err){
+        console.log(err);
         if (err.code=11000) {
             const error = new Error('Email Aready Exists')
             error.status = 404

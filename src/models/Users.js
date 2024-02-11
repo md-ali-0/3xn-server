@@ -10,7 +10,7 @@ const UserSchema = new Schema(
             default: 'https://placehold.co/500x500/png'
         },
         'role': {type: String, required: true, enum: ['admin', 'organizer', 'user'], default: 'user'},
-        'uuid' : { type: String, required: true, default: ''},
+        'uuid' : { type: String, default: ''},
         'createdAt': { type: Date, default: new Date()},
     },
     { versionKey: false }
