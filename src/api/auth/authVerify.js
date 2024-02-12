@@ -2,7 +2,6 @@ import "dotenv/config";
 import jwt from "jsonwebtoken";
 import User from "../../models/Users.js";
 
-
 const authVerify = async(req, res) => {
     if (!req.body.token) {
         return res.status(401).send({message: 'unAuthorized access'})
