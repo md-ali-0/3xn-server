@@ -1,5 +1,6 @@
 import { Router } from "express";
 import authVerify from "../api/auth/authVerify.js";
+import allUsers from "../api/users/allUsers.js";
 import checkUserRole from "../api/users/checkUserRole.js";
 import userSignIn from "../api/users/userSignIn.js";
 import userSignUp from "../api/users/userSignUp.js";
@@ -11,5 +12,6 @@ router.post('/login', userSignIn)
 router.post('/xlogin', xLogin)
 router.get('/check-user-role/:email', checkUserRole)
 router.post('/token-verify', authVerify)
+router.post('/users', allUsers)
 
 export default router

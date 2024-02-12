@@ -1,5 +1,6 @@
 import "dotenv/config";
 import jwt from "jsonwebtoken";
+import User from "../../models/Users.js";
 
 
 const authVerify = async(req, res) => {
@@ -7,6 +8,7 @@ const authVerify = async(req, res) => {
         return res.status(401).send({message: 'unAuthorized access'})
     }
     const token = req.body.token
+
     try {
         const decoded = await jwt.verify(token, process.env.ACCESS_TOKEN)
         if (decoded) {
