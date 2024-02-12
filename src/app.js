@@ -1,7 +1,9 @@
 import 'dotenv/config';
 import express from "express";
 import applyMiddlewares from "./middlewares/index.js";
+import emailRoute from './routes/emails.js';
 import userRoute from './routes/users.js';
+
 import globalErrorHandler from "./utils/globalErrorHandler.js";
 const app = express();
 
@@ -9,6 +11,7 @@ applyMiddlewares(app)
 
 // Routing Handling
 app.use(userRoute)
+app.use(emailRoute)
 
 app.get("/", (req, res) => {
   res.status(200).send({ massage: "Server is running" });
