@@ -1,9 +1,14 @@
 import findAllUsers from "../../lib/user/findAllUsers.js";
 
 const allUsers = async (req, res)=>{
-    const query = {
+    let query = {
         role: 'user'
     }
+    const filter = req.query
+    if (filter?.id) {
+        query._id = filter.id
+    }
+    
     try {
         const result = await findAllUsers(query)
         res.send(result)

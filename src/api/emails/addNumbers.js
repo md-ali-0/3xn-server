@@ -25,6 +25,7 @@ const addNumbers = async(req, res)=>{
                 password: req?.body?.password,
                 userBy: username
             }
+            
             const result = await addNum(number)
             res.send(result)
         } else{
