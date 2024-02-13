@@ -8,6 +8,7 @@ const userSignUp = async(req, res)=>{
     const password = await bcHashGen(planePassword)
     let user = {...req.body}
     user.password = password
+    console.log(user);
     try {
         const result = await addUser(user)
         if (result) {

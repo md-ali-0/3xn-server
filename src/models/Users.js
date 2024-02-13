@@ -14,6 +14,7 @@ const UserSchema = new Schema(
         'role': {type: String, required: true, enum: ['admin', 'organizer', 'user'], default: 'user'},
         'uuid' : { type: String, default: ''},
         'lastSignInAt': { type: Date, default: new Date()},
+        'purchaseAt': { type: Date, default: new Date()},
         'createdAt': { type: Date, default: new Date()},
     },
     { versionKey: false }

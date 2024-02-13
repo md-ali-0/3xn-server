@@ -20,7 +20,7 @@ const xLoginCheck = async (user) => {
 
         // Package Time Creation
         let expiredIn;
-        const packageCreatedDate = new Date(reqUser.createdAt);
+        const packageCreatedDate = new Date(reqUser.purchaseAt);
         const todaysDate = new Date();
         const restTime = todaysDate - packageCreatedDate; // Reversed the subtraction
         const totalPlanTime = parseInt(reqUser.plan) * 24 * 60 * 60 * 1000;
