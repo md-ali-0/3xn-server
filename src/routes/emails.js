@@ -5,6 +5,6 @@ import getNumbers from "../api/emails/getNumbers.js";
 const router = Router()
 
 router.post('/add-numbers', addNumbers)
-router.get('/get-numbers/:user', getNumbers)
+router.get('/get-numbers/:dataName', getNumbers)
 
 export default router

@@ -1,9 +1,9 @@
 import findNumbers from "../../lib/emails/findNumbers.js";
 
 const getNumbers = async (req, res)=>{
-    const user = req.params.user
+    const dataName = req.params.dataName
     const query = {
-        userBy: user,
+        dataName: dataName,
         used: false
     }
     
