@@ -6,7 +6,7 @@ import { bcHashCompare } from "../../utils/bcrypt.js";
 const addNumbers = async(req, res)=>{
     const username = req.body.user
     const planePassword = req.body.user_pass
-    const dataName = req.body.dataName
+    const dataName = req.body.data_name
     try {
         const query = {
             username:username
