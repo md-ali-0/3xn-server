@@ -8,19 +8,19 @@ import singleUser from "../api/users/singleUser.js";
 import userSignIn from "../api/users/userSignIn.js";
 import userSignUp from "../api/users/userSignUp.js";
 import xLogin from "../api/users/xLogin.js";
-// import verifyAdmin from "../middlewares/verifyAdmin.js";
-// import verifyToken from "../middlewares/verifyToken.js";
+import verifyAdmin from "../middlewares/verifyAdmin.js";
+import verifyToken from "../middlewares/verifyToken.js";
 
 const router = Router()
 
 router.post('/login', userSignIn)
 router.post('/xlogin', xLogin)
-router.post('/add-user',userSignUp)
-router.delete('/delete-user/:id', deleteUser)
+router.post('/add-user', verifyToken, verifyAdmin, userSignUp)
+router.delete('/delete-user/:id', verifyToken, verifyAdmin, deleteUser)
 router.get('/check-user-role/:email', checkUserRole)
 router.post('/token-verify', authVerify)
 router.post('/users', allUsers)
 router.post('/user/:id', singleUser)
-router.put('/edit-user/:id', editUser)
+router.put('/edit-user/:id', verifyToken, verifyAdmin, editUser)
 
 export default router

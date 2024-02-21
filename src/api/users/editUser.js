@@ -5,7 +5,7 @@ const editUser = async (req, res) => {
     const filter = {
         _id: req.params.id,
     };
-    console.log(upData);
+    
     try {
         const result = await updateUser(filter, upData);
         res.send(result);
