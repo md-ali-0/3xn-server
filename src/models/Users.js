@@ -9,7 +9,7 @@ const UserSchema = new Schema(
         'image' : {type: String, required: true,
             default: 'https://placehold.co/500x500/png'
         },
-        'plan':{type: String, enum:['','7 Days', '15 Days', '30 Days'], default: ''},
+        'plan':{type: String, enum:['', '0.25 Day', '7 Days', '15 Days', '30 Days'], default: ''},
         'status': {type: Boolean, default: false},
         'role': {type: String, required: true, enum: ['admin', 'organizer', 'user'], default: 'user'},
         'uuid' : { type: String, default: ''},
