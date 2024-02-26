@@ -13,11 +13,11 @@ const xLoginCheck = async (user) => {
         const reqUser = await User.findOne({ username: username });
 
         if (!reqUser) {
-            const error = new Error("User not found");
-            error.status = 404;
+            const error = new Error("User Not Found");
+            error.status = 404
             throw error;
         }
-
+        
         // Package Time Creation
         let expiredIn;
         const packageCreatedDate = new Date(reqUser.purchaseAt);
@@ -25,22 +25,21 @@ const xLoginCheck = async (user) => {
         const restTime = todaysDate - packageCreatedDate; // Reversed the subtraction
         const totalPlanTime = parseInt(reqUser.plan) * 24 * 60 * 60 * 1000;
         const leftTime = totalPlanTime - restTime; // Reversed the subtraction
-        
+        const remainingDays = Math.floor(leftTime / (1000 * 60 * 60 * 24));
+        const remainingHours = Math.floor((leftTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         if (leftTime <= 0) {
             expiredIn = `Expired`;
         } else {
-            const remainingDays = Math.floor(leftTime / (1000 * 60 * 60 * 24));
-            const remainingHours = Math.floor((leftTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             expiredIn = `${remainingDays} days ${remainingHours} hours`;
         }
 
         // User Status
         let userStatus;
-            if (remainingDays && remainingHours || remainingMinutes) {
-                userStatus = true
-            } else {
-                userStatus = false
-            }
+        if (expiredIn='Expired') {
+            userStatus = false
+        } else {
+            userStatus = true
+        }
             
         const cursor = await bcHashCompare(planePassword, reqUser.password);
 

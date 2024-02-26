@@ -15,7 +15,7 @@ const router = Router()
 
 router.post('/login', userSignIn)
 router.post('/xlogin', xLogin)
-router.post('/axlogin', xLogin)
+router.post('/ologin', xLogin)
 router.post('/add-user', verifyToken, verifyAdmin, userSignUp)
 router.delete('/delete-user/:id', verifyToken, verifyAdmin, deleteUser)
 router.get('/check-user-role/:email', checkUserRole)
