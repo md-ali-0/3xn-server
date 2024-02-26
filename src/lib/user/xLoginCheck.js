@@ -20,6 +20,8 @@ const xLoginCheck = async (user) => {
         
         // Package Time Creation
         let expiredIn;
+        let userStatus;
+
         const packageCreatedDate = new Date(reqUser.purchaseAt);
         const todaysDate = new Date();
         const restTime = todaysDate - packageCreatedDate; // Reversed the subtraction
@@ -27,20 +29,14 @@ const xLoginCheck = async (user) => {
         const leftTime = totalPlanTime - restTime; // Reversed the subtraction
         const remainingDays = Math.floor(leftTime / (1000 * 60 * 60 * 24));
         const remainingHours = Math.floor((leftTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        if (leftTime <= 0) {
+        
+        if (remainingDays<0 && remainingHours<0) {
+            userStatus = false
             expiredIn = `Expired`;
         } else {
+            userStatus = true
             expiredIn = `${remainingDays} days ${remainingHours} hours`;
         }
-
-        // User Status
-        let userStatus;
-        if (expiredIn='Expired') {
-            userStatus = false
-        } else {
-            userStatus = true
-        }
-            
         const cursor = await bcHashCompare(planePassword, reqUser.password);
 
         const projection = {
