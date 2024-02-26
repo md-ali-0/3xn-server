@@ -25,13 +25,13 @@ const xLoginCheck = async (user) => {
         const restTime = todaysDate - packageCreatedDate; // Reversed the subtraction
         const totalPlanTime = parseInt(reqUser.plan) * 24 * 60 * 60 * 1000;
         const leftTime = totalPlanTime - restTime; // Reversed the subtraction
-        const remainingDays = Math.floor(leftTime / (1000 * 60 * 60 * 24));
-        const remainingHours = Math.floor((leftTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const remainingMinutes = Math.floor((leftTime % (1000 * 60 * 60)) / (1000 * 60)); 
-        if (reqUser.plan) {
-            expiredIn = `${remainingDays} days ${remainingHours} hours`;
-        } else {
+        
+        if (leftTime <= 0) {
             expiredIn = `Expired`;
+        } else {
+            const remainingDays = Math.floor(leftTime / (1000 * 60 * 60 * 24));
+            const remainingHours = Math.floor((leftTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            expiredIn = `${remainingDays} days ${remainingHours} hours`;
         }
 
         // User Status
