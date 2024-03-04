@@ -18,7 +18,7 @@ const xLogin = async(req, res)=>{
             return res.status(404).send("User Not Found")
         }
         
-        if (reqUser.uuid == '' && reqUser.uuid !== uuid) {
+        if (reqUser.uuid !== '' && reqUser.uuid !== uuid) {
             if (reqUser.uuid !== uuid) {
                 return res.status(403).send("Wrong Device ID")
             }
