@@ -19,9 +19,7 @@ const xLogin = async(req, res)=>{
         }
         
         if (reqUser.uuid !== '' && reqUser.uuid !== uuid) {
-            if (reqUser.uuid !== uuid) {
-                return res.status(403).send("Wrong Device ID")
-            }
+            return res.status(403).send("Wrong Device ID")
         }
         
         // Package Time Creation
