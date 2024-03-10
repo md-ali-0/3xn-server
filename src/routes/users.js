@@ -14,7 +14,7 @@ import verifyToken from "../middlewares/verifyToken.js";
 const router = Router()
 
 router.post('/login', userSignIn)
-router.post('/ologin', xLogin)
+router.post('/exlogin', xLogin)
 router.post('/add-user', verifyToken, verifyAdmin, userSignUp)
 router.delete('/delete-user/:id', verifyToken, verifyAdmin, deleteUser)
 router.get('/check-user-role/:email', checkUserRole)
