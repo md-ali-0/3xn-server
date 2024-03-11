@@ -8,6 +8,7 @@ import singleUser from "../api/users/singleUser.js";
 import userSignIn from "../api/users/userSignIn.js";
 import userSignUp from "../api/users/userSignUp.js";
 import xLogin from "../api/users/xLogin.js";
+import meetlogin from "../api/users/xLogin.js";
 import verifyAdmin from "../middlewares/verifyAdmin.js";
 import verifyToken from "../middlewares/verifyToken.js";
 
@@ -15,6 +16,7 @@ const router = Router()
 
 router.post('/login', userSignIn)
 router.post('/exlogin', xLogin)
+router.post('/meetlogin', meetlogin)
 router.post('/add-user', verifyToken, verifyAdmin, userSignUp)
 router.delete('/delete-user/:id', verifyToken, verifyAdmin, deleteUser)
 router.get('/check-user-role/:email', checkUserRole)
