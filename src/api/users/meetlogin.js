@@ -7,7 +7,7 @@ const xLogin = async(req, res)=>{
     const username = user.username;
     const planePassword = user.password;
     const uuid = user.uuid;
-    
+    console.log(product);
     if (product !== 'meetBot') {
         return res.status(404).send("User Not Found")
     }

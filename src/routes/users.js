@@ -8,7 +8,7 @@ import singleUser from "../api/users/singleUser.js";
 import userSignIn from "../api/users/userSignIn.js";
 import userSignUp from "../api/users/userSignUp.js";
 import xLogin from "../api/users/xLogin.js";
-import meetlogin from "../api/users/xLogin.js";
+import meetlogin from "../api/users/meetlogin.js";
 import verifyAdmin from "../middlewares/verifyAdmin.js";
 import verifyToken from "../middlewares/verifyToken.js";
 
